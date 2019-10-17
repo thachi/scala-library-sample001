@@ -22,10 +22,4 @@ ThisBuild / scmInfo := Some(
 )
 ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / publishTo := Some("github" at "https://maven.pkg.github.com/thachi/scala-library-sample001")
-ThisBuild / credentials += Credentials(
-  "GitHub Package Registry",
-  "maven.pkg.github.com",
-  sys.env.getOrElse("GITHUB_USER", ""),
-  sys.env.getOrElse("GITHUB_TOKEN", "")
-)
 ThisBuild / publishMavenStyle := true
