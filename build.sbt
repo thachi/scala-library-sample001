@@ -28,3 +28,6 @@ ThisBuild / credentials += Credentials(
   sys.env.getOrElse("GITHUB_TOKEN", throw new Exception("GITHUB_TOKEN not found in environment variables."))
 )
 ThisBuild / publishMavenStyle := true
+
+ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(true)
+ThisBuild / publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
