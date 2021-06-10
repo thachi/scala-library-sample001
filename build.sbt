@@ -1,4 +1,5 @@
 import Dependencies._
+import sbtrelease.ReleaseStateTransformations._
 
 ThisBuild / scalaVersion     := "2.13.1"
 ThisBuild / organization     := "com.example"
@@ -23,3 +24,17 @@ ThisBuild / scmInfo := Some(
 githubOwner := "thachi"
 githubRepository := "scala-library-sample001"
 githubTokenSource := TokenSource.Environment("GITHUB_TOKEN")
+
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  // publishArtifacts,
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
+)
