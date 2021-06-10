@@ -29,5 +29,5 @@ ThisBuild / credentials += Credentials(
 )
 ThisBuild / publishMavenStyle := true
 
-ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(true)
-ThisBuild / publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
+ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(false)
+ThisBuild / publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(false)
