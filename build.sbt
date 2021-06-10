@@ -19,15 +19,7 @@ ThisBuild / scmInfo := Some(
     "scm:git@github.com:thachi/scala-library-sample001.git"
   )
 )
-ThisBuild / pomIncludeRepository := { _ => false }
-ThisBuild / publishTo := Some("github" at "https://maven.pkg.github.com/thachi/scala-library-sample001")
-ThisBuild / credentials += Credentials(
-  "GitHub Package Registry",
-  "maven.pkg.github.com",
-  sys.env.getOrElse("GITHUB_USER", throw new Exception("GITHUB_USER not found in environment variables.")),
-  sys.env.getOrElse("GITHUB_TOKEN", throw new Exception("GITHUB_TOKEN not found in environment variables."))
-)
-ThisBuild / publishMavenStyle := true
 
-ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(false)
-ThisBuild / publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(false)
+githubOwner := "thachi"
+githubRepository := "scala-library-sample001"
+githubTokenSource := TokenSource.Environment("GITHUB_TOKEN")
