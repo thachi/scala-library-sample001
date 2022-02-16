@@ -6,9 +6,13 @@ ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
+  .enablePlugins(BuildInfoPlugin)
   .settings(
     name := "scala library sample 001",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies += scalaTest % Test,
+    buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
+    buildInfoOptions += BuildInfoOption.BuildTime,
+    buildInfoPackage := "example"
   )
 
 ThisBuild / description := "Scala sample library."
