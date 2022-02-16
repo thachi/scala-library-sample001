@@ -20,6 +20,7 @@ ThisBuild / scmInfo := Some(
     "scm:git@github.com:thachi/scala-library-sample001.git"
   )
 )
+ThisBuild / publishMavenStyle := true
 
 githubOwner := "thachi"
 githubRepository := "scala-library-sample001"
