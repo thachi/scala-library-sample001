@@ -4,11 +4,16 @@ import sbtrelease.ReleaseStateTransformations._
 ThisBuild / scalaVersion     := "2.13.1"
 ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
+ThisBuild / versionScheme := Some("early-semver")
 
 lazy val root = (project in file("."))
+  .enablePlugins(BuildInfoPlugin)
   .settings(
     name := "scala library sample 001",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies += scalaTest % Test,
+    buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
+    buildInfoOptions += BuildInfoOption.BuildTime,
+    buildInfoPackage := "example"
   )
 
 ThisBuild / description := "Scala sample library."
@@ -21,6 +26,7 @@ ThisBuild / scmInfo := Some(
   )
 )
 
+publishMavenStyle := true
 githubOwner := "thachi"
 githubRepository := "scala-library-sample001"
 githubTokenSource := TokenSource.Environment("GITHUB_TOKEN")

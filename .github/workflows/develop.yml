@@ -1,15 +1,13 @@
-name: Scala CI
+name: develop build
 
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   build:
- 
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 1.8
@@ -21,4 +19,9 @@ jobs:
       env:
         GITHUB_USER: thachi
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: sbt test publish
+      run: sbt test
+    - name: Run publish
+      env:
+        GITHUB_USER: thachi
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sbt publish
