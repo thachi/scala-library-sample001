@@ -4,6 +4,7 @@ import sbtrelease.ReleaseStateTransformations._
 ThisBuild / scalaVersion     := "2.13.1"
 ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
+ThisBuild / versionScheme := Some("early-semver")
 
 lazy val root = (project in file("."))
   .enablePlugins(BuildInfoPlugin)
