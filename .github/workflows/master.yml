@@ -19,4 +19,9 @@ jobs:
       env:
         GITHUB_USER: thachi
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: sbt test publish
+      run: sbt test
+   - name: Run publish
+      env:
+        GITHUB_USER: thachi
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sbt publish
